@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotEmpty;
 
 data class RegisterRequest(
     @NotEmpty val username: String,
+    @NotEmpty val password: String,
     @NotEmpty val firstName: String,
     @NotEmpty val lastName: String,
     @NotEmpty val specialization: String,

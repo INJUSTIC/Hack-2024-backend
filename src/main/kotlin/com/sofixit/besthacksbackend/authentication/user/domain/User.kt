@@ -10,7 +10,9 @@ import java.util.*
 @NoArgsConstructor
 @Table(name = "users")
 data class User(
-    @Column @Id private val id: UUID,
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column private val id: UUID,
     @Column private val password: String,
     @Column(unique = true) private val username: String,
     @Column private val role: Role = Role.USER,

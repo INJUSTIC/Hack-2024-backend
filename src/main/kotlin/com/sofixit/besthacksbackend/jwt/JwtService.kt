@@ -13,5 +13,5 @@ interface JwtService {
 
     fun generateToken(user: JwtUser): String
 
-    fun generateToken(extraClaims: Map<String, Any>, user: JwtUser): String
+    fun generateToken(extraClaims: Map<String, Any>, user: JwtUser?): String
 }

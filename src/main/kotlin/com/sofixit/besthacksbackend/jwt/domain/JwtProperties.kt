@@ -6,6 +6,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "com.sofixit.besthacksbackend.jwt")
 data class JwtProperties (
-    val secretKey: String? = null,
-    val expirationTimeMillis: Long = 0
+    var secretKey: String? = null,
+    var expirationTimeMillis: Long = 0
 )

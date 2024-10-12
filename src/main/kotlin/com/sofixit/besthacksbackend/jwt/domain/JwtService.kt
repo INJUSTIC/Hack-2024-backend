@@ -43,15 +43,15 @@ class JwtService(val properties: JwtProperties) : JwtService {
         return generateToken(HashMap(), user)
     }
 
-        override fun generateToken(extraClaims: Map<String, Any>, user: JwtUser): String {
-            return Jwts.builder()
-                .setClaims(extraClaims)
-                .setSubject(if (user == null) null else user.subject())
-                .setIssuedAt(Date(System.currentTimeMillis()))
-                .setExpiration(Date(System.currentTimeMillis() + properties.expirationTimeMillis))
-                .signWith(signInKey, SignatureAlgorithm.HS256)
-                .compact()
-        }
+    override fun generateToken(extraClaims: Map<String, Any>, user: JwtUser?): String {
+        return Jwts.builder()
+            .claims(extraClaims)
+            .subject(user?.subject)
+            .issuedAt(Date(System.currentTimeMillis()))
+            .expiration(Date(System.currentTimeMillis() + properties.expirationTimeMillis))
+            .signWith(signInKey)
+            .compact()
+    }
 
     private val signInKey: SecretKey
         get() {

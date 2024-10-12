@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.*
 data class AuthController(val authService: AuthService) {
     @PostMapping("/register")
     fun register(@RequestBody @Valid registerRequest: RegisterRequest) {
-        //authService.register(registerRequest)
+        authService.register(registerRequest)
     }
 
     @PostMapping("/login")
     fun authenticate(@RequestBody authRequest: AuthRequest): AuthResponse {
-        //val response = authService.authenticate(authRequest)
-        //return response
-        return AuthResponse("token")
+        val response = authService.authenticate(authRequest)
+        return response
     }
 }
