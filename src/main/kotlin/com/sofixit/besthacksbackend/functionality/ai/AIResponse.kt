@@ -1,6 +1,6 @@
-package com.sofixit.besthacksbackend.ai
+package com.sofixit.besthacksbackend.functionality.ai
 
-data class AIResponse (
+data class AIResponse(
   val about: String,
   val experience: List<String>,
   val education: List<String>,
@@ -22,9 +22,7 @@ data class AIResponse (
 
     private fun extractListSection(text: String, section: String): List<String> {
       val sectionContent = extractSection(text, section)
-      return sectionContent.lines()
-        .map { it.trim() }
-        .filter { it.isNotEmpty() }
+      return sectionContent.lines().map { it.trim() }.filter { it.isNotEmpty() }
     }
   }
 }

@@ -1,5 +1,7 @@
 package com.sofixit.besthacksbackend.ai
 
+import com.sofixit.besthacksbackend.domain.ScrapingResult
+import com.sofixit.besthacksbackend.functionality.ai.AnthropicClient
 import kotlin.test.Ignore
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Test
@@ -10,7 +12,7 @@ class AnthropicClientTest {
   @Ignore
   @Test
   fun testGetAnthropicResponse() {
-    val input = """
+    val input = ScrapingResult("""
       |The user:
       |Nazywam się Bob Mitchell. Jestem studentem informatyki stosowanej na Politechnice Wrocławskiej.
       |Interesuję się programowaniem w języku Kotlin, Big Data oraz konteneryzacją.
@@ -45,11 +47,9 @@ class AnthropicClientTest {
       |- Kotlin
       |- Git
       |
-    """.trimMargin()
+    """.trimMargin())
 
-    val response = runBlocking { client.getAnthropicResponse(input, 1000) }
+    val response = runBlocking { client.getOptimizedResume(input, "") }
     println(response)
-
-    assert(response.isNotEmpty())
   }
 }
