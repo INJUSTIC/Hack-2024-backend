@@ -1,11 +1,11 @@
-package jwt.domain
+package com.sofixit.besthacksbackend.jwt.domain
 
 import io.jsonwebtoken.Claims
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.io.Decoders
 import io.jsonwebtoken.security.Keys
-import jwt.JwtService
-import jwt.dto.JwtUser
+import com.sofixit.besthacksbackend.jwt.JwtService
+import com.sofixit.besthacksbackend.jwt.dto.JwtUser
 import org.springframework.stereotype.Component
 import java.util.*
 import java.util.function.Function
