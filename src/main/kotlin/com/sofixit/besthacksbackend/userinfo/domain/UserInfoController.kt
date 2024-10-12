@@ -9,7 +9,7 @@ import java.util.*
 
 @RestController
 @RequestMapping("/api/user")
-internal class UserInfoController (
+class UserInfoController (
     private val userInfoService: UserInfoService
 ) {
     @GetMapping("/{id}")
