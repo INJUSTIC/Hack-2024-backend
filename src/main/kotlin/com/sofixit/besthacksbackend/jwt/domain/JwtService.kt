@@ -17,23 +17,18 @@ class JwtService(val properties: JwtProperties) : JwtService {
         return extractClaim(token) { obj: Claims -> obj.subject }
     }
 
-    override fun <T> extractClaim(token: String, claimsResolver: Function<Claims, T>): T {
-        TODO("Not yet implemented")
-    }
-
     private fun extractExpiration(token: String): Date {
         return extractClaim(token) { obj: Claims -> obj.expiration }
     }
 
-/*    private fun extractAllClaims(token: String): Claims {
-        return Jwts.parser()
-            .verifyWith(signInKey).build().p
-    }*/
+    private fun extractAllClaims(token: String): Claims {
+        return Jwts.parser().verifyWith(signInKey).build().parseSignedClaims(token).payload
+    }
 
-/*    override fun <T> extractClaim(token: String, claimsResolver: Function<Claims, T>): T {
+    override fun <T> extractClaim(token: String, claimsResolver: Function<Claims, T>): T {
         val claims = extractAllClaims(token)
         return claimsResolver.apply(claims)
-    }*/
+    }
 
     override fun isTokenValid(token: String, user: JwtUser): Boolean {
         val username = extractUsername(token)
@@ -48,11 +43,7 @@ class JwtService(val properties: JwtProperties) : JwtService {
         return generateToken(HashMap(), user)
     }
 
-    override fun generateToken(extraClaims: Map<String, Any>, user: JwtUser): String {
-        TODO("Not yet implemented")
-    }
-
-    /*    override fun generateToken(extraClaims: Map<String, Any>, user: JwtUser): String {
+        override fun generateToken(extraClaims: Map<String, Any>, user: JwtUser): String {
             return Jwts.builder()
                 .setClaims(extraClaims)
                 .setSubject(if (user == null) null else user.subject())
@@ -60,7 +51,7 @@ class JwtService(val properties: JwtProperties) : JwtService {
                 .setExpiration(Date(System.currentTimeMillis() + properties.expirationTimeMillis))
                 .signWith(signInKey, SignatureAlgorithm.HS256)
                 .compact()
-        }*/
+        }
 
     private val signInKey: SecretKey
         get() {
