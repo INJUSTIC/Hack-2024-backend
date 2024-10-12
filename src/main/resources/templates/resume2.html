@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume - {{ name }}</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            color: #333;
+            background-color: #fff;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+        .header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #4CAF50;
+            margin-right: 20px;
+        }
+        .header-info {
+            text-align: left;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+            color: #4CAF50;
+        }
+        .contact-info {
+            font-size: 16px;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section h2 {
+            font-size: 24px;
+            color: #4CAF50;
+            border-bottom: 1px solid #4CAF50;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        .about-me {
+            font-size: 14px;
+            text-align: justify;
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
+        .skills ul {
+            columns: 2;
+            -webkit-columns: 2;
+            -moz-columns: 2;
+        }
+        li {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            margin-bottom: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+</head>
+<body>
+
+    <div class="header">
+        <div class="header-left">
+            <img src="https://thispersondoesnotexist.com/" alt="Profile Photo">
+            <div class="header-info">
+                <h1>My name</h1>
+                <div class="contact-info">
+                    <p>Email: Email</p>
+                    <p>Phone: Phone</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section about-me">
+        <h2>About Me</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit nostrum nobis voluptate sed qui pariatur magnam nemo veniam? Cum suscipit, de</p>
+    </div>
+
+    <div class="section experiences">
+        <h2>Experience</h2>
+        <ul>
+            <li>Experience 1</li>
+            <li>Experience 2</li>
+            <li>Experience 3: My experience is amazing and that is a long text to check if it works</li>
+        </ul>
+    </div>
+
+    <div class="section skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>skill1 </li>
+            <li>skill2 </li>
+        </ul>
+    </div>
+
+    <div class="section education">
+        <h2>Education</h2>
+        <ul>
+            <li>education1 </li>
+            <li>education2 </li>
+            <li>education3: My education is amazing and that is a long text to check if it works</li>
+        </ul>
+    </div>
+
+</body>
+</html>
