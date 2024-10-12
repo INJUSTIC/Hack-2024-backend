@@ -36,7 +36,7 @@ class AuthService(
     }
 
     private fun createUserInfo(req: RegisterRequest, user: UserResponse): UserInfoResponse {
-        val userInfoRequest = UserInfoRequest(req.firstname, req.lastname, req.username, req.information, req.specialization, req.phone, req.email, user.id!!)
+        val userInfoRequest = UserInfoRequest(req.firstname, req.lastname, req.username, req.information, req.specialization, req.phone, req.email, req.skills, req.education, req.experience, user.id!!)
         return userInfoService.create(userInfoRequest)
     }
 

@@ -10,7 +10,7 @@ import java.util.UUID;
 data class UserInfo (
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column val id: UUID?,
+    @Column val id: UUID? = null,
     @Column val firstname: String,
     @Column val lastname: String,
     @Column val username: String,
@@ -18,5 +18,8 @@ data class UserInfo (
     @Column val specialization: String,
     @Column val phone: String,
     @Column val email: String,
-    @Column val userId: UUID
+    @Column val userId: UUID,
+    @Column val skills: String,
+    @Column val education: String,
+    @Column val experience: String
 )

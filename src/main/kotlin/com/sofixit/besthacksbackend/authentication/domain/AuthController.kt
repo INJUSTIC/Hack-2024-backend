@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*
 @CrossOrigin(origins = ["http://localhost:5173"])
 @RestController
 @RequestMapping("/api/auth")
-data class AuthController(val authService: AuthService) {
+class AuthController(val authService: AuthService) {
     @PostMapping("/register")
     fun register(@RequestBody @Valid registerRequest: RegisterRequest): ResponseEntity<UserInfoResponse> {
         val response = authService.register(registerRequest)
