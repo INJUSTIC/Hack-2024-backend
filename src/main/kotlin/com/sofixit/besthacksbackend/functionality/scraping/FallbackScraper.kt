@@ -11,7 +11,7 @@ class FallbackScraper : Scraper {
     request {
       this.url = url
     }
-  }.scrape().let{
+  }.scrape().let {
     "This a HTML content of the page with the job offer:\n\n${it.responseBody}"
   }.let { ScrapingResult(it) }
 }

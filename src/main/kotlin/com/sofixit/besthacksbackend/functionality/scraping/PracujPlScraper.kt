@@ -37,7 +37,7 @@ data class PracujPlResult(
 }
 
 class PracujPlScraper : Scraper {
-  override suspend fun scrape(url: String)= skrape(AsyncFetcher) {
+  override suspend fun scrape(url: String) = skrape(AsyncFetcher) {
     request {
       this.url = url
     }

@@ -23,8 +23,8 @@ class ResumeTemplatingEngine {
     val context = Context().apply {
       setVariable("about", aiResponse.about)
       setVariable("experience", aiResponse.experience)
-      setVariable("education",  aiResponse.education)
-      setVariable("skills",  aiResponse.skills)
+      setVariable("education", aiResponse.education)
+      setVariable("skills", aiResponse.skills)
       setVariable("userData", userData)
     }
     return templateEngine.process(templateName.value, context)
