@@ -1,5 +1,6 @@
 package com.sofixit.besthacksbackend.ai
 
+import com.sofixit.besthacksbackend.functionality.ai.AnthropicClient
 import kotlin.test.Ignore
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Test

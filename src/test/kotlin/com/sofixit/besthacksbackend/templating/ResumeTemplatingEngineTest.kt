@@ -1,6 +1,8 @@
 package com.sofixit.besthacksbackend.templating
 
-import com.sofixit.besthacksbackend.ai.AIResponse
+import com.sofixit.besthacksbackend.functionality.ai.AIResponse
+import com.sofixit.besthacksbackend.functionality.templating.ResumeTemplatingEngine
+import com.sofixit.besthacksbackend.functionality.templating.TemplateName
 import kotlin.test.Ignore
 import org.junit.jupiter.api.Test
 

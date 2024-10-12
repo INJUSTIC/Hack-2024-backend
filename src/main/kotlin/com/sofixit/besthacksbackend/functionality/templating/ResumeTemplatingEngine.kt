@@ -1,6 +1,6 @@
-package com.sofixit.besthacksbackend.templating
+package com.sofixit.besthacksbackend.functionality.templating
 
-import com.sofixit.besthacksbackend.ai.AIResponse
+import com.sofixit.besthacksbackend.functionality.ai.AIResponse
 import org.springframework.stereotype.Component
 import org.thymeleaf.context.Context
 import org.thymeleaf.spring6.SpringTemplateEngine
@@ -27,6 +27,6 @@ class ResumeTemplatingEngine {
       setVariable("skills",  aiResponse.skills)
       setVariable("userData", userData)
     }
-    return templateEngine.process(templateName.toName(), context)
+    return templateEngine.process(templateName.value, context)
   }
 }

@@ -1,6 +1,6 @@
-package com.sofixit.besthacksbackend.scraping.impl
+package com.sofixit.besthacksbackend.functionality.scraping
 
-import com.sofixit.besthacksbackend.scraping.Scraper
+import com.sofixit.besthacksbackend.domain.ScrapingResult
 import it.skrape.core.htmlDocument
 import it.skrape.fetcher.AsyncFetcher
 import it.skrape.fetcher.extractIt
@@ -23,19 +23,21 @@ data class PracujPlResult(
   var description: String = ""
 ) {
   override fun toString() = """
-        |Stanowisko: $title
-        |Firma: $company
-        |Pozycja: $position
-        |Specjalizacje: ${specializations.joinToString()}
-        |Technologie: ${technologies.joinToString()}
-        |Obowiązki: ${responsibilities.joinToString()}
-        |Wymagania: ${requirements.joinToString()}
-        |Opis firmy: $description
+    |These are the contents of the job offer:
+    |
+    |Stanowisko: $title
+    |Firma: $company
+    |Pozycja: $position
+    |Specjalizacje: ${specializations.joinToString()}
+    |Technologie: ${technologies.joinToString()}
+    |Obowiązki: ${responsibilities.joinToString()}
+    |Wymagania: ${requirements.joinToString()}
+    |Opis firmy: $description
     """.trimMargin()
 }
 
 class PracujPlScraper : Scraper {
-  override suspend fun scrape(url: String): PracujPlResult = skrape(AsyncFetcher) {
+  override suspend fun scrape(url: String)= skrape(AsyncFetcher) {
     request {
       this.url = url
     }
@@ -101,5 +103,5 @@ class PracujPlScraper : Scraper {
         }
       }
     }
-  }
+  }.let { ScrapingResult(it.toString()) }
 }

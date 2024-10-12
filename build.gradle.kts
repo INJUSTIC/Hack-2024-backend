@@ -37,6 +37,8 @@ dependencies {
   implementation("it.skrape:skrapeit:1.2.2")
   implementation("it.skrape:skrapeit-async-fetcher:1.2.2")
   implementation("com.convertapi.client:convertapi:2.12")
+  implementation("org.springframework.boot:spring-boot-starter-webflux")
+  testImplementation("io.projectreactor:reactor-test")
   runtimeOnly("org.postgresql:postgresql")
   testImplementation("org.springframework.boot:spring-boot-starter-test")
   testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")

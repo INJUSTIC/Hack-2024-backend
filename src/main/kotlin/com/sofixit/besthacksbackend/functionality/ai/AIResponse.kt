@@ -1,4 +1,4 @@
-package com.sofixit.besthacksbackend.ai
+package com.sofixit.besthacksbackend.functionality.ai
 
 data class AIResponse (
   val about: String,

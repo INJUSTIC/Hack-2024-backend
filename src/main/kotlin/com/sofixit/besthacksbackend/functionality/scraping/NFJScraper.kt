@@ -1,6 +1,6 @@
-package com.sofixit.besthacksbackend.scraping.impl
+package com.sofixit.besthacksbackend.functionality.scraping
 
-import com.sofixit.besthacksbackend.scraping.Scraper
+import com.sofixit.besthacksbackend.domain.ScrapingResult
 import it.skrape.core.htmlDocument
 import it.skrape.fetcher.AsyncFetcher
 import it.skrape.fetcher.extractIt
@@ -21,13 +21,15 @@ data class NFJResult(
   var tasks: List<String> = emptyList()
 ) {
   override fun toString() = """
-        |Stanowisko: $title
-        |Firma: $company
-        |O firmie: $about
-        |Wymagania: ${requirements.joinToString()}
-        |Mile widziane: ${goodToHaves.joinToString()}
-        |Opis oferty: $description
-        |Zadania: ${tasks.joinToString()}
+    |These are the contents of the job offer:
+    |
+    |Stanowisko: $title
+    |Firma: $company
+    |O firmie: $about
+    |Wymagania: ${requirements.joinToString()}
+    |Mile widziane: ${goodToHaves.joinToString()}
+    |Opis oferty: $description
+    |Zadania: ${tasks.joinToString()}
     """.trimMargin()
 }
 
@@ -92,5 +94,5 @@ class NFJScraper : Scraper {
         }
       }
     }
-  }
+  }.let { ScrapingResult(it.toString()) }
 }

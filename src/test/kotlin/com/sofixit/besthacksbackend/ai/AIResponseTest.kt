@@ -1,6 +1,7 @@
 package com.sofixit.besthacksbackend.ai
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
+import com.sofixit.besthacksbackend.functionality.ai.AIResponse
 import org.junit.jupiter.api.Test
 
 class AIResponseTest {
