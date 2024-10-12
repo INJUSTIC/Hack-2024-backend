@@ -12,10 +12,10 @@ import java.util.*
 data class User(
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column private val id: UUID,
+    @Column val id: UUID?,
     @Column private val password: String,
     @Column(unique = true) private val username: String,
-    @Column private val role: Role = Role.USER,
+    @Column var role: Role = Role.USER,
 ) : UserDetails {
 
     override fun getAuthorities(): Collection<GrantedAuthority> {

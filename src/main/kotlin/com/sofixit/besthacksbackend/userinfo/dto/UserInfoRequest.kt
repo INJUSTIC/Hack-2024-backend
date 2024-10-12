@@ -9,5 +9,7 @@ data class UserInfoRequest(
     @NotEmpty val username: String,
     @NotEmpty val information: String,
     @NotEmpty val specialization: String,
+    @NotEmpty val phone: String,
+    @NotEmpty val email: String,
     @NotEmpty val userId: UUID,
     )

@@ -19,8 +19,9 @@ class UserInfoService(private val userInfoRepository: UserInfoRepository, privat
             userInfoRepository.findById(id).orElseThrow { UserNotFoundException("User with id $id doesn't exist") })
     }
 
-    override fun create(userInfoRequest: UserInfoRequest) {
+    override fun create(userInfoRequest: UserInfoRequest): UserInfoResponse {
         val userInfo = userInfoMapper.userInfoRequestToUserInfo(userInfoRequest)
-        userInfoRepository.save(userInfo)
+        val savedUserInfo = userInfoRepository.save(userInfo)
+        return userInfoMapper.userInfoToUserInfoResponse(savedUserInfo)
     }
 }

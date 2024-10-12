@@ -8,5 +8,8 @@ data class UserInfoResponse(
     val firstname: String,
     val lastname: String,
     val information: String,
-    val specialization: String
+    val specialization: String,
+    val phone: String,
+    val email: String,
+    val userId: UUID
 )

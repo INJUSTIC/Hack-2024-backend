@@ -10,6 +10,7 @@ import com.sofixit.besthacksbackend.jwt.domain.JwtService
 import com.sofixit.besthacksbackend.jwt.dto.JwtUser
 import com.sofixit.besthacksbackend.userinfo.UserInfoService
 import com.sofixit.besthacksbackend.userinfo.dto.UserInfoRequest
+import com.sofixit.besthacksbackend.userinfo.dto.UserInfoResponse
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.crypto.password.PasswordEncoder
@@ -23,9 +24,9 @@ class AuthService(
     private val userInfoService: UserInfoService,
     private val authenticationManager: AuthenticationManager
 ) : com.sofixit.besthacksbackend.authentication.AuthService {
-    override fun register(req: RegisterRequest) {
+    override fun register(req: RegisterRequest): UserInfoResponse {
         val user = createUser(req)
-        createUserInfo(req, user)
+        return createUserInfo(req, user)
     }
 
     private fun createUser(req: RegisterRequest): UserResponse {
@@ -34,9 +35,9 @@ class AuthService(
         return user
     }
 
-    private fun createUserInfo(req: RegisterRequest, user: UserResponse) {
-        val userInfoRequest = UserInfoRequest(req.firstName, req.lastName, req.username, req.information, req.specialization, user.id)
-        userInfoService.create(userInfoRequest)
+    private fun createUserInfo(req: RegisterRequest, user: UserResponse): UserInfoResponse {
+        val userInfoRequest = UserInfoRequest(req.firstname, req.lastname, req.username, req.information, req.specialization, req.phone, req.email, user.id!!)
+        return userInfoService.create(userInfoRequest)
     }
 
     override fun authenticate(req: AuthRequest): AuthResponse {
