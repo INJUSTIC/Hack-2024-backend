@@ -2,6 +2,7 @@ package com.sofixit.besthacksbackend.functionality.ai
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.sofixit.besthacksbackend.domain.ScrapingResult
+import com.sofixit.besthacksbackend.userinfo.dto.UserInfoResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.springframework.beans.factory.annotation.Value
@@ -21,8 +22,8 @@ class AnthropicClient(
   private val headers = getHeaders(apiCode)
   private val restTemplate: RestTemplate = RestTemplateBuilder().build()
 
-  suspend fun getOptimizedResume(scrapingResult: ScrapingResult, userInfo: String): AIResponse {
-    val query = "${scrapingResult.inner}\n\n\n$userInfo"
+  suspend fun getOptimizedResume(scrapingResult: ScrapingResult, userInfo: UserInfoResponse): AIResponse {
+    val query = "${scrapingResult.inner}\n\n\n${userInfo.toAiString()}"
     return AIResponse(getAnthropicResponse(query))
   }
 

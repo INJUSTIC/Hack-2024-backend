@@ -1,6 +1,7 @@
 package com.sofixit.besthacksbackend.functionality.templating
 
 import com.sofixit.besthacksbackend.functionality.ai.AIResponse
+import com.sofixit.besthacksbackend.userinfo.dto.UserInfoResponse
 import org.springframework.stereotype.Component
 import org.thymeleaf.context.Context
 import org.thymeleaf.spring6.SpringTemplateEngine
@@ -19,9 +20,11 @@ class ResumeTemplatingEngine {
     setTemplateResolver(templateResolver)
   }
 
-  fun generateTemplate(templateName: TemplateName, aiResponse: AIResponse, userData: String): String {
+  fun generateTemplate(templateName: TemplateName, aiResponse: AIResponse, userData: UserInfoResponse): String {
     val context = Context().apply {
-      setVariable("name", "")
+      setVariable("name", "${userData.firstname} ${userData.lastname}")
+      setVariable("phone", userData.phone)
+      setVariable("email", userData.email)
       setVariable("about", aiResponse.about)
       setVariable("experience", aiResponse.experience)
       setVariable("education", aiResponse.education)
