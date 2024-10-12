@@ -23,27 +23,3 @@ CREATE TABLE users_info
     user_id            UUID,
     PRIMARY KEY (id)
 );
-
-CREATE TABLE skills
-(
-    id               UUID                NOT NULL,
-    content        VARCHAR(255)        NOT NULL,
-    user_info_id            UUID,
-    PRIMARY KEY (id)
-);
-
-CREATE TABLE educations
-(
-    id               UUID                NOT NULL,
-    content        VARCHAR(255)        NOT NULL,
-    user_info_id            UUID,
-    PRIMARY KEY (id)
-);
-
-CREATE TABLE experiences
-(
-    id               UUID                NOT NULL,
-    content        VARCHAR(255)        NOT NULL,
-    user_info_id            UUID,
-    PRIMARY KEY (id)
-);
