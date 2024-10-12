@@ -1,4 +1,5 @@
 plugins {
+  idea
   kotlin("jvm") version "1.9.25"
   kotlin("plugin.spring") version "1.9.25"
   id("org.springframework.boot") version "3.3.4"
@@ -9,6 +10,12 @@ plugins {
 
 group = "com.sofixit"
 version = "0.0.1-SNAPSHOT"
+
+idea {
+  module {
+    isDownloadJavadoc = true
+  }
+}
 
 java {
   toolchain {
@@ -26,6 +33,8 @@ dependencies {
   implementation("org.springframework.boot:spring-boot-starter-web")
   implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
   implementation("org.jetbrains.kotlin:kotlin-reflect")
+  implementation("it.skrape:skrapeit:1.2.2")
+  implementation("it.skrape:skrapeit-async-fetcher:1.2.2")
   runtimeOnly("org.postgresql:postgresql")
   testImplementation("org.springframework.boot:spring-boot-starter-test")
   testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
