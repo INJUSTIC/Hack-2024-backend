@@ -21,6 +21,7 @@ class ResumeTemplatingEngine {
 
   fun generateTemplate(templateName: TemplateName, aiResponse: AIResponse, userData: String): String {
     val context = Context().apply {
+      setVariable("name", "")
       setVariable("about", aiResponse.about)
       setVariable("experience", aiResponse.experience)
       setVariable("education", aiResponse.education)

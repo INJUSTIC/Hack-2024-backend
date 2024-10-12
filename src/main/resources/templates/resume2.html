@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Resume - {{ name }}</title>
+    <title th:text="'CV - ' + ${name}"></title>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -81,45 +81,40 @@
 
     <div class="header">
         <div class="header-left">
-            <img src="https://thispersondoesnotexist.com/" alt="Profile Photo">
+            <img th:src="${img}" alt="Profile Photo">
             <div class="header-info">
-                <h1>My name</h1>
+                <h1 th:text="${name}"></h1>
                 <div class="contact-info">
-                    <p>Email: Email</p>
-                    <p>Phone: Phone</p>
+                    <p th:text="'Email: ' + ${email}"></p>
+                    <p th:text="'Phone: ' + ${phone}"></p>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="section about-me">
-        <h2>About Me</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit nostrum nobis voluptate sed qui pariatur magnam nemo veniam? Cum suscipit, de</p>
+        <h2>O mnie</h2>
+        <p th:text="${about}"></p>
     </div>
 
     <div class="section experiences">
-        <h2>Experience</h2>
+        <h2>Doświadczenie</h2>
         <ul>
-            <li>Experience 1</li>
-            <li>Experience 2</li>
-            <li>Experience 3: My experience is amazing and that is a long text to check if it works</li>
+            <li th:each="exp : ${experience}" th:text="${exp}"></li>
         </ul>
     </div>
 
     <div class="section skills">
-        <h2>Skills</h2>
+        <h2>Umiejętności</h2>
         <ul>
-            <li>skill1 </li>
-            <li>skill2 </li>
+            <li th:each="edu : ${education}" th:text="${edu}"></li>
         </ul>
     </div>
 
     <div class="section education">
-        <h2>Education</h2>
+        <h2>Wykształcenie</h2>
         <ul>
-            <li>education1 </li>
-            <li>education2 </li>
-            <li>education3: My education is amazing and that is a long text to check if it works</li>
+            <li th:each="skill : ${skills}" th:text="${skill}"></li>
         </ul>
     </div>
 

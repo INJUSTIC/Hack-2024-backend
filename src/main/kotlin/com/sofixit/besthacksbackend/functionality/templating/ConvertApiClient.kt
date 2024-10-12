@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component
 class ConvertApiClient(
   @Value("\${convertApi.apiKey}") private val apiKey: String,
 ) {
-  suspend fun getPdfUriFromHtml(filename: String, content: String) = withContext(Dispatchers.IO) {
+  suspend fun getPdfUriFromHtml(filename: String, content: String): String = withContext(Dispatchers.IO) {
     ConvertApi.convert(
       "html", "pdf",
       arrayOf(
@@ -28,7 +28,7 @@ class ConvertApiClient(
       ),
       Config.defaults(apiKey)
     ).get()
-  }.urls()[0]
+  }.urls()[0] ?: throw IllegalStateException("No URL in the response")
 
   companion object {
     private fun stringToInputStream(input: String): InputStream {
