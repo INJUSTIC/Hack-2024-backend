@@ -26,10 +26,11 @@ class AnthropicClient(
       return AIResponse(getAnthropicResponse(query))
     }
 
-    private suspend fun getAnthropicResponse(query: String, maxTokens: Int = 1000): String {
+    private suspend fun getAnthropicResponse(query: String, maxTokens: Int? = null): String {
+      val _maxTokens = maxTokens ?: DEFAULT_MAX_TOKENS
         val requestBody = mapOf(
             "model" to "claude-3-5-sonnet-20240620",
-            "max_tokens" to maxTokens,
+            "max_tokens" to _maxTokens,
             "messages" to listOf(mapOf("role" to "user", "content" to query)),
             "system" to SYSTEM_PROMPT
         )
@@ -53,6 +54,7 @@ class AnthropicClient(
     }
 
     companion object {
+        const val DEFAULT_MAX_TOKENS = 1000
         const val API_URL = "https://api.anthropic.com/v1/messages"
         val SYSTEM_PROMPT = """You are an assistant specializing in optimizing job resumes that would make the candidate more likely to get hired.
           |
