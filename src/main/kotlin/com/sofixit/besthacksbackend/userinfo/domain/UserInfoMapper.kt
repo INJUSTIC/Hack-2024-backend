@@ -32,7 +32,10 @@ class UserInfoMapper {
             phone = userInfoRequest.phone,
             information = userInfoRequest.information,
             specialization = userInfoRequest.specialization,
-            userId = userInfoRequest.userId
+            userId = userInfoRequest.userId,
+            experience = userInfoRequest.experience.joinToString(separator = ";") { it.content },
+            education = userInfoRequest.education.joinToString(separator = ";") { it.content },
+            skills = userInfoRequest.skills.joinToString(separator = ";") { it.content}
         )
     }
 }

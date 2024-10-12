@@ -14,8 +14,8 @@ data class UserInfoResponse(
     val specialization: String,
     val phone: String,
     val email: String,
-    val skills: List<Skill>,
-    val education: List<Education>,
-    val experience: List<Experience>,
+    val skills: String,
+    val education: String,
+    val experience: String,
     val userId: UUID
 )

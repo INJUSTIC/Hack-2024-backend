@@ -1,8 +1,5 @@
 package com.sofixit.besthacksbackend.userinfo.domain;
 
-import com.sofixit.besthacksbackend.userinfo.education.domain.Education
-import com.sofixit.besthacksbackend.userinfo.experience.domain.Experience
-import com.sofixit.besthacksbackend.userinfo.skill.domain.Skill
 import jakarta.persistence.*
 import lombok.NoArgsConstructor;
 import java.util.UUID;
@@ -22,7 +19,7 @@ data class UserInfo (
     @Column val phone: String,
     @Column val email: String,
     @Column val userId: UUID,
-    @OneToMany(mappedBy = "userInfo", cascade = [CascadeType.ALL]) val skills: List<Skill> = mutableListOf(),
-    @OneToMany(mappedBy = "userInfo", cascade = [CascadeType.ALL]) val education: List<Education> = mutableListOf(),
-    @OneToMany(mappedBy = "userInfo", cascade = [CascadeType.ALL]) val experience: List<Experience> = mutableListOf()
+    @Column val skills: String,
+    @Column val education: String,
+    @Column val experience: String
 )

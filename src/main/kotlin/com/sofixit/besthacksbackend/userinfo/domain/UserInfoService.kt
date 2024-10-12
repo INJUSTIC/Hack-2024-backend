@@ -36,21 +36,6 @@ class UserInfoService(private val userInfoRepository: UserInfoRepository,
     override fun create(userInfoRequest: UserInfoRequest): UserInfoResponse {
         val userInfo = userInfoMapper.userInfoRequestToUserInfo(userInfoRequest)
         val savedUserInfo = userInfoRepository.save(userInfo)
-        val skills = userInfoRequest.skills.map {
-            Skill(content = it.content, userInfo = savedUserInfo)
-        }
-        skillRepository.saveAll(skills)
-
-        val education = userInfoRequest.education.map {
-            Education(content = it.content, userInfo = savedUserInfo)
-        }
-        educationRepository.saveAll(education)
-
-        val experience = userInfoRequest.experience.map {
-            Experience(content = it.content, userInfo = savedUserInfo)
-        }
-        experienceRepository.saveAll(experience)
-        val fullUserInfo = userInfoRepository.findById(savedUserInfo.id!!).orElseThrow { UserNotFoundException("User with id ${savedUserInfo.id} doesn't exist") }
-        return userInfoMapper.userInfoToUserInfoResponse(fullUserInfo)
+        return userInfoMapper.userInfoToUserInfoResponse(savedUserInfo)
     }
 }

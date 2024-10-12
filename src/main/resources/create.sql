@@ -17,6 +17,9 @@ CREATE TABLE users_info
     specialization   VARCHAR(255)        NOT NULL,
     email              VARCHAR(255)        NOT NULL,
     phone              VARCHAR(255)        NOT NULL,
+    skills             VARCHAR(1024)        NOT NULL,
+    education      VARCHAR(1024)        NOT NULL,
+    experience     VARCHAR(1024)        NOT NULL,
     user_id            UUID,
     PRIMARY KEY (id)
 );
@@ -44,5 +47,3 @@ CREATE TABLE experiences
     user_info_id            UUID,
     PRIMARY KEY (id)
 );
-
-DROP TABLE users_info;
