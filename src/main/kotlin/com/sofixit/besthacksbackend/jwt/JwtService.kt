@@ -1,7 +1,7 @@
-package jwt;
+package com.sofixit.besthacksbackend.jwt;
 
 import io.jsonwebtoken.Claims
-import jwt.dto.JwtUser
+import com.sofixit.besthacksbackend.jwt.dto.JwtUser
 import java.util.function.Function
 
 interface JwtService {
