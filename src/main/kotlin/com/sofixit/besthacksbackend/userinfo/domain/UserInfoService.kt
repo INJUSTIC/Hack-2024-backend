@@ -27,6 +27,8 @@ class UserInfoService(private val userInfoRepository: UserInfoRepository,
     }
 
     override fun findById(id: UUID): UserInfoResponse {
+        val userInfo = userInfoRepository.findById(id)
+        println(userInfo)
         return userInfoMapper.userInfoToUserInfoResponse(
             userInfoRepository.findById(id).orElseThrow { UserNotFoundException("User with id $id doesn't exist") })
     }

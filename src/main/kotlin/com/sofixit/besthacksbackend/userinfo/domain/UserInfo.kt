@@ -22,7 +22,7 @@ data class UserInfo (
     @Column val phone: String,
     @Column val email: String,
     @Column val userId: UUID,
-    @OneToMany(mappedBy = "userInfo", cascade = [CascadeType.ALL], fetch = FetchType.EAGER) val skills: List<Skill> = emptyList(),
-    @OneToMany(mappedBy = "userInfo", cascade = [CascadeType.ALL], fetch = FetchType.EAGER) val education: List<Education> = emptyList(),
-    @OneToMany(mappedBy = "userInfo", cascade = [CascadeType.ALL], fetch = FetchType.EAGER) val experience: List<Experience> = emptyList()
+    @OneToMany(mappedBy = "userInfo", cascade = [CascadeType.ALL]) val skills: List<Skill> = mutableListOf(),
+    @OneToMany(mappedBy = "userInfo", cascade = [CascadeType.ALL]) val education: List<Education> = mutableListOf(),
+    @OneToMany(mappedBy = "userInfo", cascade = [CascadeType.ALL]) val experience: List<Experience> = mutableListOf()
 )
