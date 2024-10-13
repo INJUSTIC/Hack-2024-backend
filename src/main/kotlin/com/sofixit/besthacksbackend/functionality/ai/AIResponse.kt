@@ -8,9 +8,15 @@ data class AIResponse(
 ) {
   constructor(responseString: String) : this(
     about = extractSection(responseString, "OVERVIEW"),
-    experience = extractListSection(responseString, "EXPERIENCE"),
-    education = extractListSection(responseString, "EDUCATION"),
-    skills = extractListSection(responseString, "SKILLS")
+    experience = if (responseString.contains("DOŚWIADCZENIE")) { extractListSection(responseString, "DOŚWIADCZENIE") } else {
+      extractListSection(responseString, "EXPERIENCE")
+    },
+    education = if(responseString.contains("EDUKACJA")) { extractListSection(responseString, "EDUKACJA") } else{
+      extractListSection(responseString, "EDUCATION")
+    },
+    skills = if(responseString.contains("UMIEJĘTNOŚCI")) { extractListSection(responseString, "UMIEJĘTNOŚCI") } else {
+      extractListSection(responseString, "SKILLS")
+    }
   )
 
   companion object {
