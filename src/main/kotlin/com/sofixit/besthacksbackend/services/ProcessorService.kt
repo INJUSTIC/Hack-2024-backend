@@ -32,7 +32,7 @@ class ProcessorService(
     suspend fun scrape(url: String) = when {
       url.contains("pracuj.pl") -> PracujPlScraper()
       url.contains("nofluffjobs.com") -> NFJScraper()
-      else -> FallbackScraper()
-    }.scrape(url)
+      else -> null
+    }?.runCatching { scrape(url) }?.getOrNull() ?: FallbackScraper().scrape(url)
   }
 }

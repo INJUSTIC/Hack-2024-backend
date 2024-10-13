@@ -4,42 +4,107 @@
     <meta charset="UTF-8" />
     <title th:text="'CV - ' + ${name}"></title>
     <style>
+      html {
+        background-color: #ffffff;
+      }
+
       body {
         margin: 0;
         font-family: "Inter", sans-serif;
         font-size: 13px;
+        border: 1px solid #333;
+        color: #333;
         width: 210mm;
         height: 297mm;
+      }
+
+      .topContainer {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row-reverse;
+        padding: 15mm 15mm 0;
+      }
+
+      .bottomContainer {
+        position: relative;
+        z-index: 2;
       }
 
       .top-blob {
         position: absolute;
         top: 0;
         left: 0;
-      }
-
-      .profilePicContainer {
-        margin: 20mm;
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 100mm;
-        border-radius: 10mm;
+        z-index: 1;
       }
 
       .profilePic {
-        width: 100%;
+        width: 80mm;
         height: auto;
         border-radius: 10mm;
       }
 
       .nameContainer {
         font-size: 18mm;
-        margin: 10mm;
         color: #333;
-        position: absolute;
-        top: 50mm;
-        left: 0;
+        z-index: 2;
+      }
+
+      .name {
+        margin: 0;
+      }
+
+      .title {
+        margin: 0;
+      }
+
+      .section {
+        margin: 20mm;
+        position: relative;
+        z-index: 2;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 12mm;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 6mm;
+      }
+
+      p {
+        margin: 0;
+        position: relative;
+        z-index: 2;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        z-index: 2;
+      }
+
+      .section li {
+        margin-bottom: 10px;
+      }
+
+      ul {
+          padding-left: 20px;
+      }
+      .skills ul {
+          columns: 2;
+          -webkit-columns: 2;
+          -moz-columns: 2;
+      }
+      li {
+          word-wrap: break-word;
+          overflow-wrap: break-word;
+          hyphens: auto;
+          margin-bottom: 10px;
       }
     </style>
     <link
@@ -48,30 +113,68 @@
     />
   </head>
   <body>
-    <svg
-      class="top-blob"
-      width="96.644783mm"
-      height="129.69337mm"
-      viewBox="0 0 96.644783 129.69337"
-      version="1.1"
-      id="svg1"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs id="defs1" />
-      <g id="layer1" transform="translate(-28.831759,-15.819088)">
-        <path
-          style="fill: #ffb380; stroke-width: 0.264583"
-          d="m 28.83176,15.819088 h 50.151707 c 0,0 32.516653,17.718366 39.646923,30.530965 7.13027,12.812598 11.04775,36.746996 -0.28872,45.951417 -11.33647,9.20442 -29.946144,-15.3939 -40.828272,-8.300392 -10.882128,7.093507 -0.739348,54.369392 -8.855419,60.066692 -8.116071,5.6973 -39.587596,-7.29488 -39.587596,-7.29488 z"
-          id="path1"
+    <div class="topContainer">
+      <svg
+        class="top-blob"
+        width="96.644783mm"
+        height="129.69337mm"
+        viewBox="0 0 96.644783 129.69337"
+        version="1.1"
+        id="svg1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs id="defs1" />
+        <g id="layer1" transform="translate(-28.831759,-15.819088)">
+          <path
+            style="fill: #ffb380; stroke-width: 0.264583"
+            d="m 28.83176,15.819088 h 50.151707 c 0,0 32.516653,17.718366 39.646923,30.530965 7.13027,12.812598 11.04775,36.746996 -0.28872,45.951417 -11.33647,9.20442 -29.946144,-15.3939 -40.828272,-8.300392 -10.882128,7.093507 -0.739348,54.369392 -8.855419,60.066692 -8.116071,5.6973 -39.587596,-7.29488 -39.587596,-7.29488 z"
+            id="path1"
+          />
+        </g>
+      </svg>
+      <div class="profilePicContainer">
+        <img
+          class="profilePic"
+          src="https://thispersondoesnotexist.com/"
+          alt="Profile Picture"
         />
-      </g>
-    </svg>
-    <div class="profilePicContainer">
-        <img class="profilePic" src="https://thispersondoesnotexist.com/" alt="Profile Picture" />
+      </div>
+      <div class="nameContainer">
+        <h1 class="name" th:text="${name}">John Doe</h1>
+        <h2 class="title" th:text="'Email: ' + ${email}">
+          Email: john.doe@example.com
+        </h2>
+        <h2 class="title" th:text="'Telefon: ' + ${phone}">
+          Telefon: 123-456-7890
+        </h2>
+      </div>
     </div>
-    <div class="nameContainer">
-      <h1 class="name" th:text="${name}">John Doe</h1>
-      <h2 class="title" th:text="'Email: ' + ${email}">Email: john.doe@example.com</h2>
+    <div class="bottomContainer">
+      <div class="section about-me">
+        <h2>O mnie</h2>
+        <p th:text="${about}"></p>
+      </div>
+
+      <div class="section experiences">
+        <h2>Doświadczenie</h2>
+        <ul>
+          <li th:each="exp : ${experience}" th:text="${exp}">fwsd</li>
+        </ul>
+      </div>
+
+      <div class="section skills">
+        <h2>Umiejętności</h2>
+        <ul>
+          <li th:each="edu : ${education}" th:text="${edu}">das</li>
+        </ul>
+      </div>
+
+      <div class="section education">
+        <h2>Wykształcenie</h2>
+        <ul>
+          <li th:each="skill : ${skills}" th:text="${skill}">fds/li></li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
