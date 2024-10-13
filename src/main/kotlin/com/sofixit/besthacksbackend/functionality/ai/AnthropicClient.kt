@@ -3,6 +3,7 @@ package com.sofixit.besthacksbackend.functionality.ai
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.sofixit.besthacksbackend.domain.ScrapingResult
 import com.sofixit.besthacksbackend.userinfo.dto.UserInfoResponse
+import java.time.Duration
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.springframework.beans.factory.annotation.Value
@@ -20,7 +21,10 @@ class AnthropicClient(
 ) {
   private val objectMapper = jacksonObjectMapper()
   private val headers = getHeaders(apiCode)
-  private val restTemplate: RestTemplate = RestTemplateBuilder().build()
+  private val restTemplate: RestTemplate = RestTemplateBuilder()
+    .setReadTimeout(Duration.ofSeconds(60))
+    .setConnectTimeout(Duration.ofSeconds(30))
+    .build()
 
   suspend fun getOptimizedResume(scrapingResult: ScrapingResult, userInfo: UserInfoResponse): AIResponse {
     val query = "${scrapingResult.inner}\n\n\n${userInfo.toAiString()}"
@@ -46,9 +50,6 @@ class AnthropicClient(
       } catch (e: Exception) {
         throw RuntimeException("Failed to get response from Anthropic API ${e.message}")
       }
-/*      restTemplate.exchange(
-        API_URL, HttpMethod.POST, request, String::class.java
-      )*/
     }.let {
       objectMapper.readTree(it.body)
     }.let {

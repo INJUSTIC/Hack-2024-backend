@@ -2,6 +2,7 @@ package com.sofixit.besthacksbackend.ai
 
 import com.sofixit.besthacksbackend.domain.ScrapingResult
 import com.sofixit.besthacksbackend.functionality.ai.AnthropicClient
+import com.sofixit.besthacksbackend.userinfo.dto.UserInfoResponse
 import kotlin.test.Ignore
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Test
@@ -49,7 +50,7 @@ class AnthropicClientTest {
       |
     """.trimMargin())
 
-    val response = runBlocking { client.getOptimizedResume(input, "") }
+    val response = runBlocking { client.getOptimizedResume(input, UserInfoResponse()) }
     println(response)
   }
 }
