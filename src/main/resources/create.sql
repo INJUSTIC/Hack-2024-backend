@@ -13,7 +13,7 @@ CREATE TABLE users_info
     username              VARCHAR(255) UNIQUE NOT NULL,
     firstname          VARCHAR(255)        NOT NULL,
     lastname           VARCHAR(255)        NOT NULL,
-    information       VARCHAR(255)        NOT NULL,
+    information       VARCHAR(4096)        NOT NULL,
     specialization   VARCHAR(255)        NOT NULL,
     email              VARCHAR(255)        NOT NULL,
     phone              VARCHAR(255)        NOT NULL,
