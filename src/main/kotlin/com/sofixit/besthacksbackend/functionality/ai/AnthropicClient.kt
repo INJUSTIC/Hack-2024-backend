@@ -34,7 +34,7 @@ class AnthropicClient(
   private suspend fun getAnthropicResponse(query: String, maxTokens: Int? = null): String {
     val _maxTokens = maxTokens ?: DEFAULT_MAX_TOKENS
     val requestBody = mapOf(
-      "model" to "claude-3-5-sonnet-20240620",
+      "model" to "claude-3-haiku-20240307",
       "max_tokens" to _maxTokens,
       "messages" to listOf(mapOf("role" to "user", "content" to query)),
       "system" to SYSTEM_PROMPT

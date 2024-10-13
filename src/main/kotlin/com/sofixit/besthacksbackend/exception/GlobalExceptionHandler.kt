@@ -1,5 +1,8 @@
 package com.sofixit.besthacksbackend.exception
 
+import io.jsonwebtoken.ExpiredJwtException
+import io.jsonwebtoken.MalformedJwtException
+import io.jsonwebtoken.UnsupportedJwtException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ControllerAdvice
@@ -24,6 +27,33 @@ class GlobalExceptionHandler {
             status = HttpStatus.NOT_FOUND.value()
         )
         return ResponseEntity(errorResponse, HttpStatus.NOT_FOUND)
+    }
+
+    @ExceptionHandler(UnsupportedJwtException::class)
+    fun handleUnsupportedJwtException(ex: UnsupportedJwtException): ResponseEntity<ErrorResponse> {
+        val errorResponse = ErrorResponse(
+            message = ex.message ?: "The JWT token is unsupported",
+            status = HttpStatus.UNAUTHORIZED.value()
+        )
+        return ResponseEntity(errorResponse, HttpStatus.UNAUTHORIZED)
+    }
+
+    @ExceptionHandler(ExpiredJwtException::class)
+    fun handleExpiredJwtException(ex: ExpiredJwtException): ResponseEntity<ErrorResponse> {
+        val errorResponse = ErrorResponse(
+            message = ex.message ?: "The JWT token is expired",
+            status = HttpStatus.UNAUTHORIZED.value()
+        )
+        return ResponseEntity(errorResponse, HttpStatus.UNAUTHORIZED)
+    }
+
+    @ExceptionHandler(MalformedJwtException::class)
+    fun handleMalformedJwtException(ex: MalformedJwtException): ResponseEntity<ErrorResponse> {
+        val errorResponse = ErrorResponse(
+            message = ex.message ?: "The JWT token is malformed",
+            status = HttpStatus.UNAUTHORIZED.value()
+        )
+        return ResponseEntity(errorResponse, HttpStatus.UNAUTHORIZED)
     }
 
     @ExceptionHandler(Exception::class)

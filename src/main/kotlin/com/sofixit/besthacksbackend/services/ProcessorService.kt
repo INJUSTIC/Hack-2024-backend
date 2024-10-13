@@ -6,7 +6,7 @@ import com.sofixit.besthacksbackend.functionality.scraping.NFJScraper
 import com.sofixit.besthacksbackend.functionality.scraping.PracujPlScraper
 import com.sofixit.besthacksbackend.functionality.templating.ConvertApiClient
 import com.sofixit.besthacksbackend.functionality.templating.ResumeTemplatingEngine
-import com.sofixit.besthacksbackend.server.dto.ProcessingRequest
+import com.sofixit.besthacksbackend.processing.dto.ProcessingRequest
 import com.sofixit.besthacksbackend.userinfo.domain.UserInfoService
 import java.time.Instant
 import org.springframework.stereotype.Component

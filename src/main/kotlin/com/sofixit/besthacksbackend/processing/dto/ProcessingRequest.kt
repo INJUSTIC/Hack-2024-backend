@@ -1,4 +1,4 @@
-package com.sofixit.besthacksbackend.server.dto
+package com.sofixit.besthacksbackend.processing.dto
 
 import com.sofixit.besthacksbackend.functionality.templating.TemplateName
 

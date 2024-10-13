@@ -1,6 +1,6 @@
-package com.sofixit.besthacksbackend.server.presentation
+package com.sofixit.besthacksbackend.processing.domain
 
-import com.sofixit.besthacksbackend.server.dto.ProcessingRequest
+import com.sofixit.besthacksbackend.processing.dto.ProcessingRequest
 import com.sofixit.besthacksbackend.services.ProcessorService
 import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.security.core.userdetails.UserDetails
