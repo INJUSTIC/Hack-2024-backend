@@ -1,10 +1,8 @@
 package com.sofixit.besthacksbackend.userinfo.domain
 
+import com.sofixit.besthacksbackend.userinfo.dto.UserInfoRequest
 import com.sofixit.besthacksbackend.userinfo.dto.UserInfoResponse
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import java.util.*
 
 @RestController
@@ -14,7 +12,11 @@ class UserInfoController (
 ) {
     @GetMapping("/{id}")
     fun getById(@PathVariable id: UUID): UserInfoResponse {
-        val userInfo: UserInfoResponse = userInfoService.findById(id)
-        return userInfo
+        return userInfoService.findById(id)
+    }
+
+    @PutMapping("/{id}")
+    fun update(@PathVariable id: UUID, @RequestBody userInfoRequest: UserInfoRequest): UserInfoResponse {
+        return userInfoService.update(id, userInfoRequest)
     }
 }

@@ -38,4 +38,11 @@ class UserInfoService(private val userInfoRepository: UserInfoRepository,
         val savedUserInfo = userInfoRepository.save(userInfo)
         return userInfoMapper.userInfoToUserInfoResponse(savedUserInfo)
     }
+
+    override fun update(id: UUID, userInfoRequest: UserInfoRequest): UserInfoResponse {
+        val userInfo = userInfoRepository.findById(id).orElseThrow { UserNotFoundException("User with id $id doesn't exist") }
+        val updatedUserInfo = userInfoMapper.userInfoRequestToUserInfo(userInfoRequest).copy(id = userInfo.id)
+        val savedUserInfo = userInfoRepository.save(updatedUserInfo)
+        return userInfoMapper.userInfoToUserInfoResponse(savedUserInfo)
+    }
 }

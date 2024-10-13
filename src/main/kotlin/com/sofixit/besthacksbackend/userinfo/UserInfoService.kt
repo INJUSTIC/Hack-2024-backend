@@ -10,4 +10,6 @@ interface UserInfoService {
     fun findById(id: UUID): UserInfoResponse
 
     fun create(userInfoRequest: UserInfoRequest): UserInfoResponse
+
+    fun update(id: UUID, userInfoRequest: UserInfoRequest): UserInfoResponse
 }
