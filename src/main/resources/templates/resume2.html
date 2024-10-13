@@ -81,12 +81,12 @@
 
     <div class="header">
         <div class="header-left">
-            <img th:src="${img}" alt="Profile Photo">
+            <img src="https://thispersondoesnotexist.com/" alt="Profile Photo">
             <div class="header-info">
                 <h1 th:text="${name}"></h1>
                 <div class="contact-info">
                     <p th:text="'Email: ' + ${email}"></p>
-                    <p th:text="'Phone: ' + ${phone}"></p>
+                    <p th:text="'Telefon: ' + ${phone}"></p>
                 </div>
             </div>
         </div>
@@ -97,17 +97,17 @@
         <p th:text="${about}"></p>
     </div>
 
-    <div class="section experiences">
-        <h2>Doświadczenie</h2>
-        <ul>
-            <li th:each="exp : ${experience}" th:text="${exp}"></li>
-        </ul>
-    </div>
-
     <div class="section skills">
         <h2>Umiejętności</h2>
         <ul>
             <li th:each="edu : ${education}" th:text="${edu}"></li>
+        </ul>
+    </div>
+
+    <div class="section experiences">
+        <h2>Doświadczenie</h2>
+        <ul>
+            <li th:each="exp : ${experience}" th:text="${exp}"></li>
         </ul>
     </div>
 

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="font-family: sans-serif;">
+<header
+        style="
+            width: 100%;
+            height: 35%;
+            position: absolute;
+            color: #fdf0d5
+        "
+>
+    <div style="
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30%;
+            height: 100%;
+            display: inline-block;
+            background-color: #003049;
+        ">
+        <img src="https://thispersondoesnotexist.com/" style="display: block; border-radius: 50%; width:90%; height: 90%; margin: 5%"/>
+    </div>
+
+    <div style="
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            height: 100%;
+            width: 70%;
+            display: inline-block;
+            background-color: #669bbc;
+        ">
+        <div style="margin: 5%">
+            <span style="font-size: 60px; font-weight: bold;">Full Name</span>
+            <h1 th:text="${name}"> ></h1>
+            <div>
+                <p th:text="'Email: ' + ${email}">+48 000 000 000</p>
+                <p th:text="'Telefon: ' + ${phone}">someeamail@gmail.com</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main style=" position: absolute; top: 35%; font-size: 20px; margin: 0 5%; width: 90%">
+
+    <div>
+        <h1 style="text-align: center;">O mnie:</h1>
+        <p th:text="${about}"></p>
+    </div>
+
+    <div class="skills">
+        <h1 style="text-align: center;">Umiejętności:</h1>
+        <ul>
+            <li th:each="edu : ${education}" th:text="${edu}"></li>
+        </ul>
+    </div>
+
+    <div class="experience">
+        <h1 style="text-align: center;">Doświadczenie:</h1>
+        <ul>
+            <li th:each="exp : ${experience}" th:text="${exp}"></li>
+        </ul>
+    </div>
+
+    <div class="education">
+        <h1 style="text-align: center;">Wykształcenie:</h1>
+        <ul>
+            <li th:each="skill : ${skills}" th:text="${skill}"></li>
+        </ul>
+
+    </div>
+
+</main>
+</body>
+</html>
