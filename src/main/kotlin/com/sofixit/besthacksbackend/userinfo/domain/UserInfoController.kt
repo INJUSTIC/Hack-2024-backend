@@ -15,6 +15,11 @@ class UserInfoController (
         return userInfoService.findById(id)
     }
 
+    @GetMapping
+    fun getByUsername(@RequestParam username: String): UserInfoResponse {
+        return userInfoService.findByUsername(username)
+    }
+
     @PutMapping("/{id}")
     fun update(@PathVariable id: UUID, @RequestBody userInfoRequest: UserInfoRequest): UserInfoResponse {
         return userInfoService.update(id, userInfoRequest)

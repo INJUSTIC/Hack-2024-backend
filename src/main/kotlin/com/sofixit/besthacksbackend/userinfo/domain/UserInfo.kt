@@ -21,5 +21,5 @@ data class UserInfo (
     @Column val userId: UUID,
     @Column val skills: String,
     @Column val education: String,
-    @Column val experience: String
+    @Column val experience: String,
 )
