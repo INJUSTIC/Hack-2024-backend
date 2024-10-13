@@ -4,7 +4,6 @@ import com.sofixit.besthacksbackend.authentication.dto.AuthRequest
 import com.sofixit.besthacksbackend.authentication.dto.AuthResponse
 import com.sofixit.besthacksbackend.authentication.dto.RegisterRequest
 import com.sofixit.besthacksbackend.authentication.user.UserService
-import com.sofixit.besthacksbackend.authentication.user.domain.User
 import com.sofixit.besthacksbackend.authentication.user.dto.UserRequest
 import com.sofixit.besthacksbackend.authentication.user.dto.UserResponse
 import com.sofixit.besthacksbackend.jwt.domain.JwtService
