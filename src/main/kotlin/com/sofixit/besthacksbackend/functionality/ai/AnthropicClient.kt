@@ -74,8 +74,7 @@ class AnthropicClient(
       |Guidelines:
       |1. Do not fabricate or alter the candidate's skills or experiences.
       |2. Highlight and prioritize the candidate's skills and experiences that align with the job offer requirements.
-      |3. Your response will be embedded into HTML, so you should use <b> tags if you want to emphasize some information.
-      |4. Structure the optimized resume in the following format (Do not change the order of the section and do not translate the section names to other languages):
+      |3. Structure the optimized resume in the following format (Do not change the order of the section and do not translate the section names to other languages):
       |
       |OVERVIEW:
       |Provide a concise paragraph summarizing the candidate, suitable for the 'About Me' section (do not reveal that this resume was tailored for this job offer).

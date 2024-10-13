@@ -24,7 +24,7 @@
             display: inline-block;
             background-color: #003049;
         ">
-        <img src="https://thispersondoesnotexist.com/" style="display: block; border-radius: 50%; width:90%; height: 90%; margin: 5%"/>
+        <img src="https://thispersondoesnotexist.com/" style="display: block; border-radius: 50%; width: 90%; height: auto; margin: 5%; object-fit: cover;"/>
     </div>
 
     <div style="
@@ -38,8 +38,7 @@
             background-color: #669bbc;
         ">
         <div style="margin: 5%">
-            <span style="font-size: 60px; font-weight: bold;">Full Name</span>
-            <h1 th:text="${name}"> ></h1>
+            <h1 th:text="${name}"> Janusz Tracz</h1>
             <div>
                 <p th:text="'Email: ' + ${email}">+48 000 000 000</p>
                 <p th:text="'Telefon: ' + ${phone}">someeamail@gmail.com</p>
@@ -52,27 +51,27 @@
 
     <div>
         <h1 style="text-align: center;">O mnie:</h1>
-        <p th:text="${about}"></p>
+        <p th:text="${about}">Lorem ispum lodor tis amen</p>
     </div>
 
     <div class="skills">
         <h1 style="text-align: center;">Umiejętności:</h1>
         <ul>
-            <li th:each="edu : ${education}" th:text="${edu}"></li>
+            <li th:each="skill : ${skills}" th:text="${skill}">Lorem ispum lodor tis amen</li>
         </ul>
     </div>
 
     <div class="experience">
         <h1 style="text-align: center;">Doświadczenie:</h1>
         <ul>
-            <li th:each="exp : ${experience}" th:text="${exp}"></li>
+            <li th:each="exp : ${experience}" th:text="${exp}">Lorem ispum lodor tis amen</li>
         </ul>
     </div>
 
     <div class="education">
         <h1 style="text-align: center;">Wykształcenie:</h1>
         <ul>
-            <li th:each="skill : ${skills}" th:text="${skill}"></li>
+            <li th:each="edu : ${education}" th:text="${edu}">Lorem ispum lodor tis amen</li>
         </ul>
 
     </div>

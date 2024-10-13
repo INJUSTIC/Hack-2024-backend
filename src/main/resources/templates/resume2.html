@@ -83,10 +83,10 @@
         <div class="header-left">
             <img src="https://thispersondoesnotexist.com/" alt="Profile Photo">
             <div class="header-info">
-                <h1 th:text="${name}"></h1>
+                <h1 th:text="${name}"> Janusz Tracz</h1>
                 <div class="contact-info">
-                    <p th:text="'Email: ' + ${email}"></p>
-                    <p th:text="'Telefon: ' + ${phone}"></p>
+                    <p th:text="'Email: ' + ${email}"> Email: janusz.tracz@example.com</p>
+                    <p th:text="'Telefon: ' + ${phone}"> Telefon: 123-456-7890</p>
                 </div>
             </div>
         </div>
@@ -94,27 +94,27 @@
 
     <div class="section about-me">
         <h2>O mnie</h2>
-        <p th:text="${about}"></p>
+        <p th:text="${about}"> Lorem pusim lodor tis amen</p>
     </div>
 
     <div class="section skills">
         <h2>Umiejętności</h2>
         <ul>
-            <li th:each="edu : ${education}" th:text="${edu}"></li>
+            <li th:each="skill : ${skills}" th:text="${skill}"> Lorem pusim lodor tis amen</li>
         </ul>
     </div>
 
     <div class="section experiences">
         <h2>Doświadczenie</h2>
         <ul>
-            <li th:each="exp : ${experience}" th:text="${exp}"></li>
+            <li th:each="exp : ${experience}" th:text="${exp}"> Lorem pusim lodor tis amen</li>
         </ul>
     </div>
 
     <div class="section education">
         <h2>Wykształcenie</h2>
         <ul>
-            <li th:each="skill : ${skills}" th:text="${skill}"></li>
+            <li th:each="edu : ${education}" th:text="${edu}"> Lorem pusim lodor tis amen</li>
         </ul>
     </div>
 
