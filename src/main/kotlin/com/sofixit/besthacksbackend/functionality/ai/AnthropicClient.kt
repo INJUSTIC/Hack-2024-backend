@@ -39,9 +39,16 @@ class AnthropicClient(
     val request = HttpEntity(requestBody, headers)
 
     val response = withContext(Dispatchers.IO) {
-      restTemplate.exchange(
+      try {
+        restTemplate.exchange(
+          API_URL, HttpMethod.POST, request, String::class.java
+        )
+      } catch (e: Exception) {
+        throw RuntimeException("Failed to get response from Anthropic API ${e.message}")
+      }
+/*      restTemplate.exchange(
         API_URL, HttpMethod.POST, request, String::class.java
-      )
+      )*/
     }.let {
       objectMapper.readTree(it.body)
     }.let {

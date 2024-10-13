@@ -16,5 +16,5 @@ class ProcessingController(
 ) {
   @PostMapping("/process")
   suspend fun processUrl(@RequestBody request: ProcessingRequest, @AuthenticationPrincipal user: UserDetails) =
-    processorService.processUrl(request, user.username)
+      processorService.processUrl(request, user.username)
 }

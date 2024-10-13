@@ -70,6 +70,6 @@ class SecurityConfiguration (
     }
 
     companion object {
-        private val WHITE_LIST_URL = arrayOf("/api/auth/**")
+        private val WHITE_LIST_URL = arrayOf("/api/auth/**", "/api/processing/**")
     }
 }

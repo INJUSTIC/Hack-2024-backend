@@ -52,6 +52,7 @@ dependencies {
   kapt("org.projectlombok:lombok")
   runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.12.6")
   implementation("io.jsonwebtoken:jjwt-api:0.12.6")
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
   runtimeOnly("io.jsonwebtoken:jjwt-impl:0.12.6")
 
 }
