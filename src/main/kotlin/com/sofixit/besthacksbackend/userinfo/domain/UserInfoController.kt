@@ -4,7 +4,7 @@ import com.sofixit.besthacksbackend.userinfo.dto.UserInfoRequest
 import com.sofixit.besthacksbackend.userinfo.dto.UserInfoResponse
 import org.springframework.web.bind.annotation.*
 import java.util.*
-
+@CrossOrigin(origins = ["http://localhost:5173"])
 @RestController
 @RequestMapping("/api/user")
 class UserInfoController (
